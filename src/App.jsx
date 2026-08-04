@@ -32,6 +32,7 @@ import ManageRooms from './components/admin/rooms/ManageRooms.jsx';
 import ManageAccount from './components/admin/accounts/ManageAccount.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Unauthorized from './components/Unauthorized.jsx';
+import ManageTickets from './components/admin/rooms/ManageTickets.jsx';
 
 export default function App() {
   return (
@@ -91,6 +92,7 @@ export default function App() {
                   {/* Pagina para manejar las salas */}
                   <Route path='rooms' element={<Outlet />}>
                     <Route index element={<AdminRooms />}></Route>
+                    <Route path='tickets' element={<ManageTickets />}></Route>
                     <Route path='manage' element={<ManageRooms />}></Route>
                     <Route path='manage/:id' element={<ManageRooms />}></Route>
                   </Route>

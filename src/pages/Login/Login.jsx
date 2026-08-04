@@ -16,7 +16,7 @@ import { useUser } from "../../context/UserContext";
 import { isValidEmail } from "../../util/validations";
 
 export default function Login() {
-    const {user} = useUser();
+    const {user, setUser, users} = useUser();
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     const [passwordEye, setPasswordEye] = useState(false);
@@ -31,10 +31,16 @@ export default function Login() {
     // Funcion que realizara cuando se someta el formulario
     const onSubmit = (data) => {
         console.log(data);
+        const userAccount = users.find(u => (u.email === data.email) && (u.password === data.password))
 
-        if(user.email === data.email && user.password === data.password){
+        if(userAccount){
             reset();
-            navigate("/");
+            setUser(userAccount)
+
+            if(userAccount.role == "Administrator")
+                navigate("/admin")
+            else
+                navigate("/");
         }
         else
             setErrorMessage("The email or password are incorrect")

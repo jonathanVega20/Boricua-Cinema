@@ -54,9 +54,12 @@ function AdminRoomsList() {
                 <AdminSidebar />
                 <div className="profile-info admin-pages">
                     <h1>Rooms</h1>
+                                        
 
                     {/* Filtros */}
                     <Search search={search}  onChange={setSearch}/>
+
+
 
                     <div id="history-tool-bar">
                         <div className="filters">
@@ -75,6 +78,10 @@ function AdminRoomsList() {
                             </Filter>
                     
                             <SortFilter sort={sort} setSort={setSort}/>    
+                        </div>
+
+                        <div className="tickets-btn">
+                            <Button text={"Manage Tickets"} classButtonName="btn btn-another" onClick={() => {navigate("tickets")}}/>
                         </div>
                     
                         <Button text={"+"} classButtonName="btn-add" onClick={() => {navigate("manage")}}/>

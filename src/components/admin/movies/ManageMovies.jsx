@@ -81,6 +81,7 @@ function ManageMovieInfo() {
             description: movie?.description || "",
             poster: movie?.poster || "",
             status: movie?.status || "",
+            releaseDate: movie?.releaseDate || ""
         })
     }, [])
 
@@ -100,6 +101,7 @@ function ManageMovieInfo() {
             description: data.description,
             poster: data.poster,
             status: data.status,
+            releaseDate: data.releaseDate,
             showtimes: [...prev.showtimes]
         }))
 
@@ -339,6 +341,25 @@ function ManageMovieInfo() {
                                         
                                     <ErrorMessage errors={errors.status} />
                                 </div>
+
+                                <div className="input-form">
+                                    <label htmlFor="releaseDate">Release Date</label>
+                                    <input id="releaseDate" type="date" disabled={!isEditing}
+                                        {...register("releaseDate", {
+                                            required: "Enter the releaseDate",
+                                            validate: value => {
+                                                const date = new Date(value + "T00:00:00");
+                                                today.setHours(0,0,0,0);
+
+                                                return (date < today) 
+                                                        ? "The date has already passed." 
+                                                        : true
+                                            },
+                                            min: today                                            
+                                        })}/>
+
+                                    <ErrorMessage errors={errors.releaseDate} />
+                                </div>
                             </div>
                         </div>
 
@@ -418,9 +439,10 @@ function ManageMovieInfo() {
                                                             {...editShowtimeForm.register(`showtimes.${key}.date`, {
                                                                 required: "Enter a date",
                                                                 validate: value => {
-                                                                    const date = new Date(value);
+                                                                    const date = new Date(value + "T00:00:00");
+                                                                    today.setHours(0,0,0,0);
 
-                                                                    return (date.getTime() < today.getTime()) 
+                                                                    return (date < today) 
                                                                             ? "The date has already passed." 
                                                                             : true
                                                                 },

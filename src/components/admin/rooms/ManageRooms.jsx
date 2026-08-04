@@ -339,9 +339,10 @@ function ManageRoomsInfo() {
                                                             {...editShowtimeForm.register(`showtimes.${key}.date`, {
                                                                 required: "Enter a date",
                                                                 validate: value => {
-                                                                    const date = new Date(value);
+                                                                    const date = new Date(value + "T00:00:00");
+                                                                    today.setHours(0,0,0,0);
 
-                                                                    return (date.getTime() < today.getTime()) 
+                                                                    return (date < today) 
                                                                             ? "The date has already passed." 
                                                                             : true
                                                                 },

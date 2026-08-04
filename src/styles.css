@@ -1773,3 +1773,13 @@ button.default-button.btn-another{
     align-items: center;
     row-gap: 20px;
 }
+
+/* Pagina AdminRooms */
+.tickets-btn {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.tickets-btn .btn{
+    margin: 0 20px;
+}
