@@ -1,6 +1,6 @@
 import './App.css'
 import { Outlet, BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from "./pages/Home";
+import Home from "./pages/Home.jsx";
 import NowPlaying from './pages/NowPlaying.jsx';
 import ComingSoon from './pages/ComingSoon.jsx';
 import Menu from './pages/Menu.jsx';

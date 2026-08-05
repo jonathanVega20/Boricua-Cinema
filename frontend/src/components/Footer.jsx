@@ -3,7 +3,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import "../styles.css";
-import Text from "../components/Text";
+import Text from "./Text";
 import LoadImage from "../util/loadImage";
 
 export default function Footer() {

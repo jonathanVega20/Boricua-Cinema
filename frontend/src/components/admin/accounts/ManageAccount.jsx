@@ -2,12 +2,12 @@
 // ver toda su informacion
 
 import { useForm } from "react-hook-form";
-import Footer from "../../../components/Footer";
-import Header from "../../../components/Header";
+import Footer from "../../Footer";
+import Header from "../../Header";
 import "../../../styles.css";
-import ErrorMessage from "../../../components/ErrorMessage";
+import ErrorMessage from "../../ErrorMessage";
 import { useEffect, useState } from "react";
-import Button from "../../../components/Button";
+import Button from "../../Button";
 import { useUser } from "../../../context/UserContext";
 import OpenEye from "../../../assets/open_eye.png";
 import CloseEye from "../../../assets/close_eye.png";
